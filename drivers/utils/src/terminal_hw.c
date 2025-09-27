@@ -12,6 +12,7 @@
 #endif
 #include "error.h"
 #include "error_base.h"
+#include "terminal.h"
 #include "types.h"
 #include "device/class/usbd_cdc.h"
 
