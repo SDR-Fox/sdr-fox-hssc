@@ -1,0 +1,6 @@
+r
+loadfile hw1-0/hssc.hex
+verifyfile hw1-0/hssc.hex
+r
+g
+qc

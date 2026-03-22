@@ -8,7 +8,7 @@
 #ifndef __USB_LIB_FLAGS_H__
 #define __USB_LIB_FLAGS_H__
 
-#include "usb_configuration_sdr_fox.h"
+#include "usb_configuration_hssc.h"
 #include "usb_hs_device.h"
 
 /*** USB library compilation flags ***/

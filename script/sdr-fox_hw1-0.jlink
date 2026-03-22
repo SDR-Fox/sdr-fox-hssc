@@ -1,6 +1,0 @@
-r
-loadfile hw1-0/sdr-fox.hex
-verifyfile hw1-0/sdr-fox.hex
-r
-g
-qc

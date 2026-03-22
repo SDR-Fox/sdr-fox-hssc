@@ -15,16 +15,16 @@
 #include "syscon.h"
 #include "systick.h"
 #include "types.h"
-#include "usb_device_sdr_fox.h"
+#include "usb_device_hssc.h"
 
 /*** MAIN functions ***/
 
 /*******************************************************************/
-static void _SDR_FOX_init_hw(void) {
+static void _HSSC_init_hw(void) {
     // Local variables.
     SYSCON_status_t syscon_status = SYSCON_SUCCESS;
     SYSTICK_status_t systick_status = SYSTICK_SUCCESS;
-    USB_DEVICE_SDR_FOX_status_t usb_device_sdr_fox_status = USB_DEVICE_SDR_FOX_SUCCESS;
+    USB_DEVICE_HSSC_status_t usb_device_hssc_status = USB_DEVICE_HSSC_SUCCESS;
     CLI_status_t cli_status = CLI_SUCCESS;
     SYSCON_pll_configuration_t pll1_config;
     // Init error stack
@@ -52,8 +52,8 @@ static void _SDR_FOX_init_hw(void) {
     systick_status = SYSTICK_init(SYSTICK_CORE_CPU0, SYSTICK_CLOCK_SOURCE_32K_OSC, 1, NVIC_PRIORITY_SYSTICK);
     SYSTICK_stack_error(ERROR_BASE_SYSTICK);
     // Init USB interface.
-    usb_device_sdr_fox_status = USB_DEVICE_SDR_FOX_init();
-    USB_DEVICE_SDR_FOX_stack_error(ERROR_BASE_USB_DEVICE_SDR_FOX);
+    usb_device_hssc_status = USB_DEVICE_HSSC_init();
+    USB_DEVICE_HSSC_stack_error(ERROR_BASE_USB_DEVICE_HSSC);
     // Init command line.
     cli_status = CLI_init();
     CLI_stack_error(ERROR_BASE_CLI);
@@ -62,10 +62,10 @@ static void _SDR_FOX_init_hw(void) {
 /*******************************************************************/
 int main(void) {
     // Local variables.
-    USB_DEVICE_SDR_FOX_status_t usb_device_sdr_fox_status = USB_DEVICE_SDR_FOX_SUCCESS;
+    USB_DEVICE_HSSC_status_t usb_device_hssc_status = USB_DEVICE_HSSC_SUCCESS;
     CLI_status_t cli_status = CLI_SUCCESS;
     // Init board.
-    _SDR_FOX_init_hw();
+    _HSSC_init_hw();
     // Configure LED pin.
     GPIO_configure(&GPIO_LED_RED, GPIO_MODE_DIGITAL_OUTPUT, GPIO_TYPE_PUSH_PULL, GPIO_SLEW_RATE_STANDARD, GPIO_PULL_NONE);
     GPIO_configure(&GPIO_LED_GREEN, GPIO_MODE_DIGITAL_OUTPUT, GPIO_TYPE_PUSH_PULL, GPIO_SLEW_RATE_STANDARD, GPIO_PULL_NONE);
@@ -74,8 +74,8 @@ int main(void) {
     GPIO_write(&GPIO_LED_GREEN, 1);
     GPIO_write(&GPIO_LED_BLUE, 1);
     // Start USB device.
-    usb_device_sdr_fox_status = USB_DEVICE_SDR_FOX_start();
-    USB_DEVICE_SDR_FOX_stack_error(ERROR_BASE_USB_DEVICE_SDR_FOX);
+    usb_device_hssc_status = USB_DEVICE_HSSC_start();
+    USB_DEVICE_HSSC_stack_error(ERROR_BASE_USB_DEVICE_HSSC);
     // Main loop.
     while (1) {
         // Process commands.

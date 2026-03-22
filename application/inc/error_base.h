@@ -27,7 +27,7 @@ typedef enum {
     // Middleware.
     ERROR_BASE_CLI = 0x20000000,
     ERROR_BASE_USB = 0x20010000,
-    ERROR_BASE_USB_DEVICE_SDR_FOX = 0x20020000
+    ERROR_BASE_USB_DEVICE_HSSC = 0x20020000
 } ERROR_base_t;
 
 #endif /* __ERROR_BASE_H__ */

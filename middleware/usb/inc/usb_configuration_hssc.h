@@ -1,12 +1,12 @@
 /*
- * usb_configuration_sdr_fox.h
+ * usb_configuration_hssc.h
  *
  *  Created on: 20 apr. 2025
  *      Author: Ludo
  */
 
-#ifndef __USB_CONFIGURATION_SDR_FOX_H__
-#define __USB_CONFIGURATION_SDR_FOX_H__
+#ifndef __USB_CONFIGURATION_HSSC_H__
+#define __USB_CONFIGURATION_HSSC_H__
 
 /*** USB CONFIGURATION SDR FOX structures ***/
 
@@ -15,7 +15,7 @@
  * \brief USB device configurations index.
  *******************************************************************/
 typedef enum {
-    USB_CONFIGURATION_INDEX_SDR_FOX = 0,
+    USB_CONFIGURATION_INDEX_HSSC = 0,
     USB_CONFIGURATION_INDEX_LAST
 } USB_configuration_index_t;
 
@@ -53,4 +53,4 @@ typedef enum {
     USB_STRING_DESCRIPTOR_INDEX_LAST
 } USB_string_descriptor_index_t;
 
-#endif /* __USB_CONFIGURATION_SDR_FOX_H__ */
+#endif /* __USB_CONFIGURATION_HSSC_H__ */
